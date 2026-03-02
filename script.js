@@ -6,12 +6,12 @@ const errorMessage = document.getElementById('error-message');
 const loadingSpinner = document.getElementById('loading-spinner');
 
 async function searchCountry(countryName) {
-    countryName =countryName.trim().toLowerCase();
+    countryName = countryName.trim().toLowerCase();
     countryCard.style.display = "none";
     countryInfo.style.display = "none";
     countryInfo.innerHTML = "";
     borderingCountries.innerHTML = "";
-    errorMessage.innerText = "";
+    errorMessage.textContent = "";
     try {
         loadingSpinner.style.display = "block";
         const response = await fetch(URL+`v3.1/name/${countryName}?fullText=true`);
@@ -20,16 +20,16 @@ async function searchCountry(countryName) {
         }
         const data = await response.json();
         const countryTitle = document.createElement("h2");
-        countryTitle.innerText = data[0].name.common;
+        countryTitle.textContent = data[0].name.common;
         const capital = data[0].capital ? data[0].capital[0] : "N/A";
         const population = data[0].population.toLocaleString();
         const region = data[0].region;
         const p1 = document.createElement("p");
-        p1.innerText = `Capital: ${capital}`;
+        p1.textContent = `Capital: ${capital}`;
         const p2 = document.createElement("p");
-        p2.innerText = `Population: ${population}`;
+        p2.textContent = `Population: ${population}`;
         const p3 = document.createElement("p");
-        p3.innerText = `Region: ${region}`;
+        p3.textContent = `Region: ${region}`;
         const mainFlag = document.createElement("img");
         if (data[0].flags && data[0].flags.png) {
             mainFlag.src = data[0].flags.png;
@@ -56,7 +56,7 @@ async function searchCountry(countryName) {
         countryInfo.appendChild(p2);
         countryInfo.appendChild(p3);
         const borderingCountriesTitle = document.createElement("h2");
-        borderingCountriesTitle.innerText = "Bordering Countries";
+        borderingCountriesTitle.textContent = "Bordering Countries";
         if (data[0].borders && data[0].borders.length > 0) {
             const borderCodes = data[0].borders.join(",");
             const borderResponse = await fetch(URL+`v3.1/alpha?codes=${borderCodes}`);
@@ -72,7 +72,7 @@ async function searchCountry(countryName) {
                 p.style.fontSize = "20px";
                 p.style.width = "50ch"; 
                 p.style.margin = "0"; 
-                p.innerText = country.name.common;
+                p.textContent = country.name.common;
                 const borderFlag = document.createElement("img");
                 if (country.flags && country.flags.png) {
                     borderFlag.src = country.flags.png;
@@ -94,14 +94,14 @@ async function searchCountry(countryName) {
             p.style.fontSize = "20px";
             p.style.fontFamily = "franklin gothic medium, sans-serif";
             const article = document.createElement("article");
-            p.innerText = "No bordering countries.";
+            p.textContent = "No bordering countries.";
             article.appendChild(p);
             borderingCountries.appendChild(borderingCountriesTitle);
             borderingCountries.appendChild(article);
         }
     } catch (error) {
         console.error("Error fetching data:", error);
-        errorMessage.innerText = "An error occurred while fetching data. Please try again.";
+        errorMessage.textContent = "An error occurred while fetching data. Please try again.";
     } finally {
         loadingSpinner.style.display = "none";
     }
