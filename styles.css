@@ -1,0 +1,105 @@
+body {
+    background-color: #f0f0f0;
+}
+
+h1 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(122, 185, 164);
+    text-align: center;
+    font-size: 40px;
+}
+h2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(122, 164, 185);
+    text-align: center;
+}
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.search-container {
+    text-align: center;
+    margin-top: 20px;
+}
+input {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid #060606;
+}
+button {
+    padding:6px 10px;
+    border-radius: 8px;
+    background-color: rgb(201, 147, 201);
+    color: white;
+    border: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(205, 95, 205);
+    color: white;
+}
+.country-card{
+    background-color: white;
+    display: none;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    width: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+article {
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.error {
+    color: rgb(167, 98, 98);
+    margin-top: 20px;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+
+    
+}
+img{
+    width: 80px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #060606;
+}
+.border-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#loading-spinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 6px solid #ccc;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.hidden {
+    display: none;
+}
